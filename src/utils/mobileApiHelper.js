@@ -61,9 +61,7 @@ export const mobileOptimizedFetch = async (url, options = {}) => {
         ...options,
         signal: controller.signal,
         headers: {
-          'User-Agent': device.isMobile ? 'Mozilla/5.0 (Mobile; rv:100.0)' : navigator.userAgent,
           'Accept': 'application/json',
-          'Cache-Control': device.isMobile ? 'max-age=300' : 'no-cache',
           ...options.headers
         }
       };
@@ -200,12 +198,6 @@ export const mobileApiHandler = {
     }
     
     try {
-      // Check network connectivity first
-      const connectivity = await checkNetworkConnectivity();
-      if (!connectivity.isOnline) {
-        throw new Error('No network connectivity detected');
-      }
-      
       const data = await mobileOptimizedFetch(url, options);
       
       // Cache successful responses for mobile

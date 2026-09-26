@@ -202,11 +202,11 @@ export const getMovieVideos = fetchMovieVideos;
 
 // VidSrc streaming URL generators (basic)
 export const getMovieStreamUrl = (movieId) => {
-  return `https://vidsrc.xyz/embed/movie/${movieId}`;
+  return `https://vidlink.pro/movie/${movieId}`;
 };
 
 export const getTVShowStreamUrl = (tvId, season = 1, episode = 1) => {
-  return `https://vidsrc.xyz/embed/tv/${tvId}/${season}/${episode}`;
+  return `https://vidlink.pro/tv/${tvId}/${season}/${episode}`;
 };
 
 // Simple cache for recently fetched data (keep it simple)
@@ -329,24 +329,21 @@ export const getContinueWatching = () => {
 };
 
 // Enhanced VidSrc Streaming Integration
-const VIDSRC_BASE_URL = 'https://vidsrc.xyz';
+const VIDSRC_BASE_URL = 'https://vidlink.pro';
 
 // Generate movie embed URL
 export const getMovieEmbedUrl = (movieId, options = {}) => {
-  // VidSrc uses simple path format: /embed/movie/TMDB_ID
-  return `${VIDSRC_BASE_URL}/embed/movie/${movieId}`;
+  return `${VIDSRC_BASE_URL}/movie/${movieId}`;
 };
 
 // Generate TV show embed URL (for episodes)
 export const getTVShowEmbedUrl = (tvId, season = 1, episode = 1, options = {}) => {
-  // VidSrc uses path format: /embed/tv/TMDB_ID/SEASON/EPISODE
-  return `${VIDSRC_BASE_URL}/embed/tv/${tvId}/${season}/${episode}`;
+  return `${VIDSRC_BASE_URL}/tv/${tvId}/${season}/${episode}`;
 };
 
 // Generate episode embed URL (alias for getTVShowEmbedUrl)
 export const getEpisodeEmbedUrl = (tvId, season, episode, options = {}) => {
-  // VidSrc uses path format: /embed/tv/TMDB_ID/SEASON/EPISODE  
-  return `${VIDSRC_BASE_URL}/embed/tv/${tvId}/${season}/${episode}`;
+  return `${VIDSRC_BASE_URL}/tv/${tvId}/${season}/${episode}`;
 };
 
 // Basic embed URL aliases (for compatibility)
